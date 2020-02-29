@@ -7,7 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link href="https://transloadit.edgly.net/releases/uppy/v1.9.3/uppy.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900" rel="stylesheet">
+
+    <script src="https://transloadit.edgly.net/releases/uppy/v1.9.3/uppy.min.js"></script>
+
 
     <title>Mood Board</title>
     <!--
@@ -94,42 +98,39 @@ https://templatemo.com/tm-528-Mood Board
                 <div class="section-inner">
                     <div class="about-section">
                         <div class="row justify-content-center">
-                            <div class="col-lg-8 wide-col-laptop">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="about-contentbox">
-                                            <div class="animate" data-animate="fadeInUp">
-
-
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="row">
+                                <div class="UppyDragDrop"></div>
+                                <script>
+                                    var uppy = Uppy.Core()
+                                    uppy.use(Uppy.DragDrop, { target: '.UppyDragDrop' })
+                                    uppy.use(Uppy.Tus, { endpoint: '//master.tus.io/files/' })
+                                </script>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    </div>
 
-        <script src="js/jquery.js"></script>
+    <script src="js/jquery.js"></script>
 
-        <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
-        <script src="js/fullpage.min.js"></script>
+    <script src="js/fullpage.min.js"></script>
 
-        <script src="js/scrolloverflow.js"></script>
+    <script src="js/scrolloverflow.js"></script>
 
-        <script src="js/owl.carousel.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
 
-        <script src="js/jquery.inview.min.js"></script>
+    <script src="js/jquery.inview.min.js"></script>
 
-        <script src="js/form.js"></script>
+    <script src="js/form.js"></script>
 
-        <script src="js/custom.js"></script>
+    <script src="js/custom.js"></script>
 
-        <script src="js/requiredUppyStuff.js"></script>
+    <script src="js/requiredUppyStuff.js"></script>
 
 </body>
 
