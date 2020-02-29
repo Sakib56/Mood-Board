@@ -11,8 +11,9 @@
         $(element).width($winW()).height($winH());
     };
     $('#sad').click(function() {
-        video = $('#bgVideo');
-        console.log(video);
+        var videoFile = 'images/video-bg-OLD.mp4';
+        $('#divVideo video source').attr('src', videoFile);
+        $("#divVideo video")[0].load();
     });
     var screencheck = function(mediasize) {
         if (typeof window.matchMedia !== "undefined") {
