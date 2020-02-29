@@ -10,6 +10,10 @@
     var $screensize = function(element) {
         $(element).width($winW()).height($winH());
     };
+    $('#sad').click(function() {
+        video = $('#bgVideo');
+        console.log(video);
+    });
     var screencheck = function(mediasize) {
         if (typeof window.matchMedia !== "undefined") {
             var screensize = window.matchMedia("(max-width:" + mediasize + "px)");
