@@ -101,9 +101,34 @@ https://templatemo.com/tm-528-Mood Board
                             <div class="row">
                                 <div class="UppyDragDrop"></div>
                                 <script>
-                                    var uppy = Uppy.Core()
-                                    uppy.use(Uppy.DragDrop, { target: '.UppyDragDrop' })
-                                    uppy.use(Uppy.Tus, { endpoint: '//master.tus.io/files/' })
+                                    var uppy = Uppy.Core({
+                                        debug: true,
+                                        autoProceed: false
+                                    })
+                                    uppy.use(Uppy.Dashboard, {
+                                        target: '.UppyDragDrop',
+                                        inline: true
+                                    })
+                                    uppy.use(Uppy.Transloadit, {
+                                        service: 'https://api2.transloadit.com',
+                                        params: {
+                                            auth: {
+                                                key: "a5ad9c2f46b84d22849b687a5c1e551c"
+                                            },
+                                            template_id: "946d4299d4724814b2fae4206f8584f0",
+                                        },
+                                        waitForEncoding: true
+                                    })
+
+                                    uppy.on('transloadit:complete', (assembly) => {
+                                        fetch('/add_uploads', {
+                                            method: 'POST',
+                                            headers: {
+                                                'Content-Type': 'application/json'
+                                            },
+                                            body: JSON.stringify(assembly)
+                                        }).then(res => location.reload());
+                                    })
                                 </script>
                             </div>
                         </div>
@@ -130,7 +155,7 @@ https://templatemo.com/tm-528-Mood Board
 
     <script src="js/custom.js"></script>
 
-    <script src="js/requiredUppyStuff.js"></script>
+    <!-- <script src="js/requiredUppyStuff.js"></script> -->
 
 </body>
 
