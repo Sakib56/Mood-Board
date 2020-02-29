@@ -10,8 +10,13 @@
     var $screensize = function(element) {
         $(element).width($winW()).height($winH());
     };
+    $('#happy').click(function() {
+        var videoFile = 'images/happy.mp4';
+        $('#divVideo video source').attr('src', videoFile);
+        $("#divVideo video")[0].load();
+    });
     $('#sad').click(function() {
-        var videoFile = 'images/video-bg-OLD.mp4';
+        var videoFile = 'images/sad.mp4';
         $('#divVideo video source').attr('src', videoFile);
         $("#divVideo video")[0].load();
     });
