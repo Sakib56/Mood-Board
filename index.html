@@ -11,15 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900" rel="stylesheet">
 
     <script src="https://transloadit.edgly.net/releases/uppy/v1.9.3/uppy.min.js"></script>
-    <script>
-        function ddselect(){
-            var mood ={}
-            mood['happy'] = "fd77b7df90cb4b859a02420c55722a08"
-            mood['sad'] = "e479d7b7c37e433caea2d6f060de6e87"
-            var d= document.getElementById("ddselect")
-            var strValue = d.options[d.selectedIndex].
-        }
-    </script>
+     
 
     <title>Mood Board</title>
     <!--
@@ -111,15 +103,30 @@ https://templatemo.com/tm-528-Mood Board
                             <option>--Select Mood type for file--</option>
                             <option value="happy">Happy</option>
                             <option value ="sad">Sad</option>
-
-                            
                             </select>
+                            <p1 id="output"></p1>
+
                         </div>
                         <div class="row justify-content-center">
                             <div class="row">
 
                                 <div class="UppyDragDrop"></div>
                                 <script>
+                                var code = "fd77b7df90cb4b859a02420c55722a08"
+                                
+                                function ddselect(){
+                                    var mood ={}
+                                    mood['Happy'] = "fd77b7df90cb4b859a02420c55722a08"
+                                    mood['Sad'] = "e479d7b7c37e433caea2d6f060de6e87"
+                                    var d= document.getElementById("ddselect")
+                                    var strValue = d.options[d.selectedIndex].text;
+                                    code = mood[strValue]
+                                    document.getElementById('output').innerHTML = code;
+                                    console.log(code)
+
+                                 }
+                            
+                                    
                                     var uppy = Uppy.Core({
                                         debug: true,
                                         autoProceed: false
@@ -128,16 +135,35 @@ https://templatemo.com/tm-528-Mood Board
                                         target: '.UppyDragDrop',
                                         inline: true
                                     })
+                                    
                                     uppy.use(Uppy.Transloadit, {
-                                        service: 'https://api2.transloadit.com',
-                                        params: {
+                                        getAssemblyOptions (file) {
+                                            var templateID = null;
+                                            var d = document.getElementById("ddselect")
+                                            var strValue = d.options[d.selectedIndex].text;
+                                            var moodList ={}
+                                            moodList['Happy'] = "fd77b7df90cb4b859a02420c55722a08"
+                                            moodList['Sad'] = "e479d7b7c37e433caea2d6f060de6e87"
+                                            
+                                            if (strValue == "Sad") {
+                                                templateID = moodList['Sad']
+                                            } else {
+                                                templateID = moodList['Happy']
+                                            }
+                                            return{   
+                                            params: {
                                             auth: {
                                                 key: "a1c368a5e16e4b3397a561530a000ea0"
                                             },
-                                            template_id: "0aac6f4965164380b3c4fbc7a1a180e6",
+                                            template_id: templateID
+                                            
                                         },
                                         waitForEncoding: true
+                                    }}
+
+                                     
                                     })
+                            
 
                                     uppy.on('transloadit:complete', (assembly) => {
                                         fetch('/add_uploads', {
