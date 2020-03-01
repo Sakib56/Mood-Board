@@ -11,7 +11,15 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900" rel="stylesheet">
 
     <script src="https://transloadit.edgly.net/releases/uppy/v1.9.3/uppy.min.js"></script>
-
+    <script>
+        function ddselect(){
+            var mood ={}
+            mood['happy'] = "fd77b7df90cb4b859a02420c55722a08"
+            mood['sad'] = "e479d7b7c37e433caea2d6f060de6e87"
+            var d= document.getElementById("ddselect")
+            var strValue = d.options[d.selectedIndex].
+        }
+    </script>
 
     <title>Mood Board</title>
     <!--
@@ -97,8 +105,19 @@ https://templatemo.com/tm-528-Mood Board
             <div class="section animated-row" data-section="slide02">
                 <div class="section-inner">
                     <div class="about-section">
+
+                        <div class="dropdown">
+                            <select id="ddselect" onchange="ddselect();">
+                            <option>--Select Mood type for file--</option>
+                            <option value="happy">Happy</option>
+                            <option value ="sad">Sad</option>
+
+                            
+                            </select>
+                        </div>
                         <div class="row justify-content-center">
                             <div class="row">
+
                                 <div class="UppyDragDrop"></div>
                                 <script>
                                     var uppy = Uppy.Core({
@@ -113,9 +132,9 @@ https://templatemo.com/tm-528-Mood Board
                                         service: 'https://api2.transloadit.com',
                                         params: {
                                             auth: {
-                                                key: "a5ad9c2f46b84d22849b687a5c1e551c"
+                                                key: "a1c368a5e16e4b3397a561530a000ea0"
                                             },
-                                            template_id: "946d4299d4724814b2fae4206f8584f0",
+                                            template_id: "0aac6f4965164380b3c4fbc7a1a180e6",
                                         },
                                         waitForEncoding: true
                                     })
