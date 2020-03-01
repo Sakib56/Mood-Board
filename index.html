@@ -89,11 +89,13 @@ https://templatemo.com/tm-528-Mood Board
                             <p><a id="happy" href="#slide01">Happy</a></p>
                             <p><a id="sad" href="#slide01">Sad</a></p>
                         </p>
+                        
                         <div class="scroll-down next-section animate data-animate=" fadeInUp""></div>
                     </div>
+                    <div id="uppy-container"></div>
                 </div>
             </div>
-
+             
             <div class="section animated-row" data-section="slide02">
                 <div class="section-inner">
                     <div class="about-section">
@@ -104,27 +106,14 @@ https://templatemo.com/tm-528-Mood Board
                             <option value="happy">Happy</option>
                             <option value ="sad">Sad</option>
                             </select>
-                            <p1 id="output"></p1>
-
+ 
                         </div>
                         <div class="row justify-content-center">
                             <div class="row">
 
                                 <div class="UppyDragDrop"></div>
                                 <script>
-                                var code = "fd77b7df90cb4b859a02420c55722a08"
-                                
-                                function ddselect(){
-                                    var mood ={}
-                                    mood['Happy'] = "fd77b7df90cb4b859a02420c55722a08"
-                                    mood['Sad'] = "e479d7b7c37e433caea2d6f060de6e87"
-                                    var d= document.getElementById("ddselect")
-                                    var strValue = d.options[d.selectedIndex].text;
-                                    code = mood[strValue]
-                                    document.getElementById('output').innerHTML = code;
-                                    console.log(code)
-
-                                 }
+                              
                             
                                     
                                     var uppy = Uppy.Core({
